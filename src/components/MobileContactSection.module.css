@@ -1,0 +1,259 @@
+/* Mobile Contact Section CSS */
+.mobileSection {
+  display: none; /* Hidden on desktop by default */
+}
+
+@media (max-width: 992px) {
+  .mobileSection {
+    display: block;
+    padding: 3rem 1.5rem 5rem;
+    background: var(--bg-off-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    font-size: 2.25rem;
+    font-family: var(--font-michroma), sans-serif;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Quick Contact Chips */
+  .chipsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contactChip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    background: var(--bg-white);
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    min-width: 100px;
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: transform 0.2s ease;
+  }
+
+  .contactChip:active {
+    transform: scale(0.95);
+  }
+
+  .chipIconWrapper {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--bg-white);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(14, 122, 116, 0.3);
+  }
+
+  .contactChip span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark-slate);
+  }
+
+  /* Premium Glassmorphism Card */
+  .glassCard {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06), inset 0 2px 0 rgba(255,255,255,0.8);
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  /* Floating Label Inputs */
+  .inputWrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .inputField {
+    width: 100%;
+    height: 56px; /* Thumb friendly */
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem 1rem 0.5rem; /* Padding top pushes input text down */
+    font-size: 1rem;
+    font-family: var(--font-body);
+    color: var(--text-dark-slate);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
+  }
+
+  .selectField {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+  }
+
+  .textareaField {
+    height: 120px;
+    resize: none;
+    padding-top: 1.75rem; /* More space for label in textarea */
+  }
+
+  .inputField:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+    background: #fff;
+  }
+
+  .floatingLabel {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    color: var(--text-light);
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+  }
+
+  .textareaField ~ .floatingLabel {
+    top: 1.5rem; /* Adjust initial label position for textarea */
+  }
+
+  /* Floating label active state */
+  .inputField:focus ~ .floatingLabel,
+  .inputField.hasValue ~ .floatingLabel {
+    top: 0.5rem;
+    transform: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .inputField.hasValue ~ .floatingLabel {
+    color: var(--text-light); /* Keep neutral if just filled, accent if focused */
+  }
+  .inputField:focus ~ .floatingLabel {
+    color: var(--accent);
+  }
+
+  /* Submit Button */
+  .submitBtn {
+    width: 100%;
+    height: 56px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), #B8932C);
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .submitBtn:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+  }
+
+  .loadingBtn {
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .successBtn {
+    background: #0E7A74; /* Primary green */
+    box-shadow: 0 8px 20px rgba(14, 122, 116, 0.4);
+    pointer-events: none;
+  }
+
+  /* Success View */
+  .successView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .successIconWrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+  }
+
+  .successSvg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .successTitle {
+    font-size: 1.5rem;
+    font-family: var(--font-michroma), sans-serif;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .successMessage {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    max-width: 90%;
+  }
+
+  .doneBtn {
+    padding: 1rem 3rem;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .doneBtn:active {
+    background: rgba(14, 122, 116, 0.1);
+    transform: scale(0.95);
+  }
+}

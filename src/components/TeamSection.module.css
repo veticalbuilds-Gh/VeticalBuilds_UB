@@ -1,0 +1,27 @@
+.sectionWrapper {
+  background-color: var(--bg-white);
+  padding: 4rem 5%;
+}
+
+.dividerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  opacity: 0.5;
+}
+
+.dividerLine {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--primary), transparent);
+}
+
+.dividerDiamond {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  transform: rotate(45deg);
+  margin: 0 1rem;
+}

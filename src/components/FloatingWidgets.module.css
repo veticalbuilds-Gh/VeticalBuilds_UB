@@ -1,0 +1,125 @@
+.widgetContainer {
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none; /* Let clicks pass through container */
+}
+
+/* -------------------------------------
+   Desktop Floating WhatsApp
+------------------------------------- */
+.floatingWhatsapp {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  pointer-events: auto; /* Re-enable clicks */
+}
+
+.waIconBox {
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+  transition: transform 0.3s ease;
+}
+
+.waIconBox:hover {
+  transform: scale(1.1);
+}
+
+.waTooltip {
+  position: absolute;
+  right: 75px;
+  background-color: #fff;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.floatingWhatsapp:hover .waTooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+  }
+}
+
+/* -------------------------------------
+   Mobile Action Bar
+------------------------------------- */
+.mobileActionBar {
+  display: none;
+}
+
+.mobileCallBtn, .mobileWaBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.8rem 0;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+}
+
+.mobileCallBtn {
+  background: transparent;
+  color: var(--primary);
+}
+
+.mobileWaBtn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .floatingWhatsapp {
+    display: none; /* Hide bouncing icon on mobile */
+  }
+
+  .mobileActionBar {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 5%;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    border-radius: 50px;
+    padding: 6px;
+    pointer-events: auto;
+    z-index: 10000;
+  }
+}

@@ -1,0 +1,322 @@
+.teamComponent {
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionSubtitle {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-family: var(--font-playfair), serif;
+  color: var(--text-dark-slate);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Desktop Grid */
+.desktopGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.memberCard {
+  background: var(--bg-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease;
+}
+
+/* Director Variant Styles */
+.directorCard {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.directorCard:hover {
+  transform: translateY(-5px);
+}
+
+.directorImageWrapper {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 1.5rem auto 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--bg-light-grey);
+  border: 2px solid rgba(0,0,0,0.03);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.directorRole {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+/* Channel Team Variant Styles */
+.channelCard {
+  border-radius: var(--radius-soft);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.channelCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.channelImageWrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 2.5rem auto 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--bg-light-grey);
+  border: 4px solid var(--bg-off-white);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  z-index: 2;
+}
+
+/* Common Image Styles */
+.profileImage {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.memberCard:hover .profileImage {
+  transform: scale(1.03);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 122, 116, 0.15);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.channelImageWrapper .imageOverlay,
+.directorImageWrapper .imageOverlay {
+  border-radius: 50%;
+}
+
+.memberCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.cardContent {
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-white);
+}
+
+.memberName {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.3rem;
+  color: var(--text-dark-slate);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.emailLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+  height: 20px;
+}
+
+.emailText {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.emailAction {
+  position: absolute;
+  top: 100%;
+  color: var(--accent);
+  font-weight: 600;
+  transition: transform 0.4s ease;
+  white-space: nowrap;
+}
+
+/* Hover reveal action */
+.memberCard:hover .emailText {
+  transform: translateY(-150%);
+  opacity: 0;
+}
+
+.memberCard:hover .emailAction {
+  transform: translateY(-100%);
+}
+
+.mobileCarouselWrapper {
+  display: none;
+}
+
+/* Mobile Layout */
+@media (max-width: 992px) {
+  .desktopGrid {
+    display: none;
+  }
+
+  .mobileCarouselWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .carouselTrack {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    padding-bottom: 1rem;
+    margin: 0 -5%; 
+    width: calc(100% + 10%);
+    padding: 0 5%;
+  }
+
+  .carouselTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carouselItem {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    padding-right: 5%;
+  }
+  
+  .carouselItem:last-child {
+    padding-right: 0;
+  }
+
+  .memberCard {
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .channelImageWrapper {
+    width: 180px;
+    height: 180px;
+    margin: 2rem auto 0;
+  }
+
+  .directorImageWrapper {
+    width: 200px;
+    height: 200px;
+    margin: 1.5rem auto 0;
+  }
+
+  .emailLink {
+    height: auto;
+    overflow: visible;
+  }
+
+  .emailText {
+    margin-bottom: 1rem;
+  }
+
+  .memberCard:hover .emailText {
+    transform: none;
+    opacity: 1;
+  }
+  .emailAction {
+    display: none;
+  }
+
+  .mobileEmailBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--bg-light-grey);
+    color: var(--primary);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-soft);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .mobileEmailBtn:active {
+    background-color: var(--primary);
+    color: white;
+  }
+
+  .carouselControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .arrowBtn {
+    background: none;
+    border: none;
+    color: var(--text-dark-slate);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.5rem; /* Min 48px touch target handled here implicitly but let's make it 48px explicitly */
+    min-width: 48px;
+    min-height: 48px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  
+  .arrowBtn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+
+  .arrowBtn:active:not(:disabled) {
+    opacity: 1;
+  }
+
+  .paginationText {
+    font-family: var(--font-michroma), sans-serif;
+    font-size: 0.9rem;
+    color: var(--primary);
+    letter-spacing: 2px;
+  }
+}

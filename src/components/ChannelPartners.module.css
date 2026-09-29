@@ -1,0 +1,134 @@
+.channelSection {
+  background: var(--bg-light-grey);
+  padding: 4rem 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  color: var(--primary);
+  font-family: var(--font-michroma), sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  background: transparent;
+}
+
+/* Add subtle fade gradients on the sides */
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-light-grey), transparent);
+}
+
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-light-grey), transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  /* Animation for left to right scrolling */
+  animation: scrollLeftToRight 25s linear infinite;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+@keyframes scrollLeftToRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.partnerItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-white);
+  padding: 0.75rem 1.5rem 0.75rem 0.75rem;
+  border-radius: 50px;
+  box-shadow: var(--shadow-diffuse);
+  border: 1px solid rgba(0,0,0,0.02);
+  transition: var(--transition-slow);
+  white-space: nowrap;
+}
+
+.partnerItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-float);
+}
+
+.logoWrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--accent);
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures logos fill the circle elegantly */
+  padding: 2px; /* Slight padding so the logo doesn't touch the border */
+  border-radius: 50%;
+}
+
+.partnerName {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dark-slate);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .channelSection {
+    padding: 2.5rem 0;
+  }
+  .partnerItem {
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+  }
+  .logoWrapper {
+    width: 40px;
+    height: 40px;
+  }
+  .partnerName {
+    font-size: 0.95rem;
+  }
+}

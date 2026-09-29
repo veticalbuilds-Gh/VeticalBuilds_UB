@@ -1,0 +1,85 @@
+.trustSection {
+  background: var(--bg-white);
+  padding: 3rem 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.marqueeContainer {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+}
+
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-white) 0%, transparent 100%);
+}
+
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-white) 0%, transparent 100%);
+}
+
+.marquee {
+  display: flex;
+  gap: 3rem;
+  animation: scroll 40s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-light-grey);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 50px;
+  color: var(--text-dark-slate);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  background: var(--bg-white);
+  border-color: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 5px 15px rgba(214, 177, 90, 0.2);
+  transform: translateY(-2px);
+}
+
+.badgeIcon {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% / 3)); }
+}

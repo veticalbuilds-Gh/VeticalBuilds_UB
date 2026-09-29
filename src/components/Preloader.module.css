@@ -1,0 +1,64 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #ffffff 0%, var(--bg-light-grey) 100%);
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.logoWrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: var(--bg-white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.logoImg {
+  height: 130px;
+  width: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+.loadingText {
+  font-family: var(--font-michroma), sans-serif;
+  color: var(--primary);
+  font-size: 1.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .loadingText {
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .logoWrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .logoImg {
+    height: 90px;
+  }
+}

@@ -1,0 +1,223 @@
+/* By default, hide this component on large screens */
+.mobileHeader {
+  display: none;
+}
+.fullscreenMenu {
+  display: none;
+}
+
+/* Only show on screens < 992px */
+@media (max-width: 992px) {
+  .mobileHeader {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    border-radius: 20px;
+    z-index: 1000;
+    padding: 0.75rem 0;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scrolled {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 0.75rem 0;
+    border-bottom: none;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+
+  .logoImg {
+    height: 40px;
+    width: auto;
+  }
+
+  .logoText {
+    color: var(--primary);
+    font-family: var(--font-michroma), sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  .scrolled .logoText {
+    color: var(--primary);
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .phoneIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    color: var(--bg-white);
+    border-radius: 50%;
+    text-decoration: none;
+  }
+
+  @keyframes ringingPhone {
+    0% { transform: rotate(0) scale(1); }
+    10% { transform: rotate(-12deg) scale(1.05); }
+    20% { transform: rotate(12deg) scale(1.05); }
+    30% { transform: rotate(-12deg) scale(1.05); }
+    40% { transform: rotate(12deg) scale(1.05); }
+    50% { transform: rotate(0) scale(1); }
+    100% { transform: rotate(0) scale(1); }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .phoneIcon svg {
+      animation: ringingPhone 4s ease-in-out infinite;
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+
+    .phoneIcon:hover svg,
+    .phoneIcon:active svg {
+      transform: rotate(15deg) scale(1.1);
+      animation: none;
+    }
+  }
+
+  .menuToggle {
+    background: transparent;
+    border: none;
+    color: var(--text-dark-slate);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+  }
+
+  .scrolled .menuToggle {
+    color: var(--text-dark-slate);
+  }
+
+  /* Full Screen Overlay - 3D Premium Design */
+  .fullscreenMenu {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at top right, #ffffff 0%, var(--bg-light-grey) 100%);
+    z-index: 10000;
+    flex-direction: column;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .menuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .menuHeader .logoText {
+    color: var(--primary);
+  }
+
+  .closeBtn {
+    background: transparent;
+    border: none;
+    color: var(--text-dark-slate);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menuNav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .menuLink {
+    font-family: var(--font-michroma), sans-serif;
+    font-size: 1.35rem;
+    color: var(--text-charcoal);
+    text-decoration: none;
+    display: block;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .activeLink {
+    color: var(--primary);
+    background: #ffffff;
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.04),
+      -8px -8px 16px rgba(255, 255, 255, 1);
+    transform: scale(1.02);
+  }
+
+  .activeLink::before {
+    display: none;
+  }
+
+  .menuFooter {
+    margin-top: auto;
+    padding-top: 2rem;
+  }
+
+  .menuCta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1.25rem;
+    background: linear-gradient(145deg, var(--primary), #0a5c57);
+    color: var(--bg-white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    box-shadow: 
+      0 15px 30px rgba(14, 122, 116, 0.3),
+      inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+  }
+
+  .menuCta:active {
+    transform: translateY(4px) scale(0.98);
+    box-shadow: 
+      0 5px 15px rgba(14, 122, 116, 0.3),
+      inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  }
+}
