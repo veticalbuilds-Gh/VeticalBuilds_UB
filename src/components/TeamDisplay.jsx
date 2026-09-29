@@ -72,6 +72,7 @@ export default function TeamDisplay({ title, subtitle, members, variant = 'chann
                   className={styles.profileImage} 
                   sizes="(max-width: 992px) 100vw, 33vw"
                   quality={90}
+                  unoptimized={true}
                 />
                 <div className={styles.imageOverlay}></div>
               </div>
@@ -108,6 +109,7 @@ export default function TeamDisplay({ title, subtitle, members, variant = 'chann
                       className={styles.profileImage} 
                       sizes="(max-width: 992px) 100vw, 33vw"
                       quality={90}
+                      unoptimized={true}
                     />
                     <div className={styles.imageOverlay}></div>
                   </div>

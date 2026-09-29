@@ -176,9 +176,9 @@ Message: ${formData.message}`;
                     <select id="project" name="project" value={formData.project} onChange={handleChange} className={styles.input}>
                       <option value="">General Inquiry</option>
                       <option value="Habulus Tranquil">Habulus Tranquil</option>
-                      {/* <option value="Mahan Lake Prime">Mahan Lake Prime</option> */}
-                      {/* <option value="TRU Aquapolis">TRU Aquapolis</option> */}
                       <option value="Abhee Celestial City">Abhee Celestial City</option>
+                      <option value="Mahindra Arto Helix">Mahindra Arto Helix</option>
+                      <option value="Nanjapura">Nanjapura</option>
                     </select>
                   </div>
                 </div>
