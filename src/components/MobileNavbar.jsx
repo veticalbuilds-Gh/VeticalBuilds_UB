@@ -22,7 +22,6 @@ export default function MobileNavbar() {
     { name: 'Projects', path: '/projects' },
     { name: 'Overview', path: '/#about' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'Price', path: '/#price' },
     { name: 'Contact Us', path: '/contact' }
   ];
 
