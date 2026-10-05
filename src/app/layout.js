@@ -6,43 +6,30 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 const michroma = Michroma({ weight: '400', subsets: ["latin"], variable: "--font-michroma" });
 
 export const metadata = {
-  metadataBase: new URL('https://veticalbuilds.com'),
-  title: "Vetical Builds Pvt Ltd | Real Estate & Construction Company",
-  description: "Vetical Builds Pvt Ltd is a premium real estate and construction company delivering residential, commercial, and development solutions with a focus on quality and design.",
-  keywords: ["Vetical Builds Pvt Ltd", "Vetical Builds Bangalore", "real estate developer Bangalore", "construction company", "residential projects", "commercial construction"],
-  alternates: {
-    canonical: '/',
+  metadataBase: new URL('https://www.veticalbuilds.com'),
+  title: {
+    default: "Vetical Builds Pvt Ltd | Real Estate & Construction Company in Bangalore",
+    template: "%s | Vetical Builds",
   },
+  description: "Vetical Builds Pvt Ltd is a premium real estate and construction company in Bangalore delivering residential, commercial, and development solutions with a focus on quality and design.",
   openGraph: {
     title: "Vetical Builds Pvt Ltd | Real Estate & Construction",
-    description: "Vetical Builds Pvt Ltd is a premium real estate and construction company delivering residential, commercial, and development solutions.",
-    url: "https://veticalbuilds.com",
+    description: "Premium residential, commercial, and development projects in Bangalore.",
+    url: "https://www.veticalbuilds.com",
     siteName: "Vetical Builds",
-    images: [
-      {
-        url: "/logo.png",
-        width: 800,
-        height: 600,
-      },
-    ],
-    locale: "en_US",
+    images: [{ url: "https://www.veticalbuilds.com/logo.png", width: 1200, height: 630, alt: "Vetical Builds" }],
+    locale: "en_IN",
     type: "website",
   },
-  icons: {
-    icon: [
-      { url: '/logo.ico?v=2' },
-      { url: '/logo.png?v=2', type: 'image/png', sizes: '32x32' },
-      { url: '/logo.png?v=2', type: 'image/png', sizes: '192x192' },
-      { url: '/logo.png?v=2', type: 'image/png', sizes: '512x512' },
-    ],
-    apple: [
-      { url: '/logo.png?v=2' }
-    ],
+  twitter: {
+    card: "summary_large_image",
+    title: "Vetical Builds Pvt Ltd",
+    description: "Premium residential, commercial, and development projects in Bangalore.",
+    images: ["/og-image.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  verification: { google: "YOUR_SEARCH_CONSOLE_CODE" },
+  icons: { /* aapka existing icons block jaisa hai waisa hi rehne do */ },
+  robots: { index: true, follow: true },
 };
 
 import Navbar from "@/components/Navbar";
@@ -64,27 +51,27 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "Organization",
-                  "@id": "https://veticalbuilds.com/#organization",
-                  "name": "Vetical Builds Pvt Ltd",
-                  "url": "https://veticalbuilds.com",
-                  "logo": "https://veticalbuilds.com/logo.png",
-                  "sameAs": [
-                    "https://www.instagram.com/veticalbuilds",
-                    "https://www.linkedin.com/company/veticalbuilds"
-                  ]
+                  "@type": "WebSite",
+                  "@id": "https://www.veticalbuilds.com/#website",
+                  "url": "https://www.veticalbuilds.com",
+                  "name": "Vetical Builds",
+                  "publisher": { "@id": "https://www.veticalbuilds.com/#business" }
                 },
                 {
-                  "@type": "LocalBusiness",
-                  "@id": "https://veticalbuilds.com/#localBusiness",
+                  "@type": ["GeneralContractor", "RealEstateAgent"],
+                  "@id": "https://www.veticalbuilds.com/#business",
                   "name": "Vetical Builds Pvt Ltd",
-                  "image": "https://veticalbuilds.com/logo.png",
-                  "telephone": "+919501731511",
-                  "url": "https://veticalbuilds.com",
+                  "url": "https://www.veticalbuilds.com",
+                  "logo": "https://www.veticalbuilds.com/logo.png",
+                  "image": "https://www.veticalbuilds.com/og-image.jpg",
+                  "telephone": "+919135537575",
+                  "email": "info@veticalbuilds.com",
                   "address": {
                     "@type": "PostalAddress",
+                    "streetAddress": "APNA ASLI STREET ADDRESS",
                     "addressLocality": "Bangalore",
                     "addressRegion": "Karnataka",
+                    "postalCode": "5600XX",
                     "addressCountry": "IN"
                   },
                   "geo": {
@@ -92,7 +79,17 @@ export default function RootLayout({ children }) {
                     "latitude": 12.9715987,
                     "longitude": 77.5945627
                   },
-                  "priceRange": "$$$"
+                  "areaServed": ["Bangalore", "Karnataka"],
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "opens": "09:30",
+                    "closes": "18:30"
+                  },
+                  "sameAs": [
+                    "https://www.instagram.com/veticalbuilds",
+                    "https://www.linkedin.com/company/veticalbuilds"
+                  ]
                 }
               ]
             })

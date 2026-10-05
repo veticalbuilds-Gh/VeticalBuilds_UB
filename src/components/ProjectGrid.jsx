@@ -5,7 +5,8 @@ import BrochureButton from './BrochureButton';
 import MobileProjectCarousel from './MobileProjectCarousel';
 import styles from './ProjectGrid.module.css';
 
-export default function ProjectGrid({ projects = [] }) {
+export default function ProjectGrid({ projects = [], headingLevel = 'h1' }) {
+  const Heading = headingLevel;
   return (
     <section className={styles.projectSection}>
       <div className={styles.container}>
@@ -17,7 +18,7 @@ export default function ProjectGrid({ projects = [] }) {
           transition={{ duration: 0.8 }}
         >
           <h4 className={styles.sectionSubtitle}>FEATURED PROJECTS</h4>
-          <h3 className={styles.sectionTitle}>Premium Properties in Bangalore's Fastest-Growing Locations</h3>
+          <Heading className={styles.sectionTitle}>Premium Properties in Bangalore's Fastest-Growing Locations</Heading>
         </motion.div>
 
         <motion.div

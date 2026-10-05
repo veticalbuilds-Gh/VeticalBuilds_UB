@@ -3,8 +3,10 @@ import Gallery from '@/components/Gallery';
 import { client } from "@/sanity/client";
 
 export const metadata = {
-  title: 'Project Gallery & Walkthroughs | Vetical Builds Pvt Ltd',
-  description: 'Immerse yourself in our premium real estate properties. View high-quality galleries and video walkthroughs of Vetical Builds projects.',
+  title: 'Vetical Builds Gallery | Real Estate Project Gallery',
+  description: 'View the Vetical Builds project gallery featuring residential and commercial developments, spaces, designs, and project highlights.',
+  alternates: { canonical: '/gallery' },
+  openGraph: { title: 'Project Gallery | Vetical Builds', url: '/gallery' },
 };
 
 const GALLERY_QUERY = `*[_type == "project"]{

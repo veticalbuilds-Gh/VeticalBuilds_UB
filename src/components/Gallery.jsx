@@ -70,7 +70,10 @@ export default function Gallery({ projects = [] }) {
   return (
     <section id="gallery" className={styles.projectDetailSection}>
       <div className={styles.container}>
-
+        <div className="ProjectGrid-module__1t5ofq__header">
+          <h4 className="ProjectGrid-module__1t5ofq__sectionSubtitle">Gallery</h4>
+          <h1 className="ProjectGrid-module__1t5ofq__sectionTitle">Project Gallery</h1>
+        </div>
         {/* Project Selection Tabs */}
         <div className={styles.tabsContainer}>
           {projects.map((project) => (

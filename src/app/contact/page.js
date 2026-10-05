@@ -2,8 +2,10 @@ import ContactForm from "@/components/ContactForm";
 import MobileContactSection from "@/components/MobileContactSection";
 
 export const metadata = {
-  title: "Contact Us | Vetical Builds Pvt Ltd",
-  description: "Get in touch with Vetical Builds Pvt Ltd. Book a site visit, inquire about projects, or connect with our sales team.",
+  title: 'Contact Vetical Builds | Real Estate & Construction',
+  description: 'Contact Vetical Builds Pvt Ltd for project details, property inquiries, and site visits for premium residential and commercial developments.',
+  alternates: { canonical: '/contact' },
+  openGraph: { title: 'Contact Us | Vetical Builds', url: '/contact' },
 };
 
 export default function ContactPage() {

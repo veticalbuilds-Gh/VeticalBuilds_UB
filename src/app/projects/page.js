@@ -1,6 +1,8 @@
 export const metadata = {
-  title: 'Featured Projects | Vetical Builds Pvt Ltd',
-  description: 'Explore our portfolio of premium residential and commercial projects. Discover luxury living and prime commercial spaces with Vetical Builds.',
+  title: 'Vetical Builds Projects | Real Estate & Construction',
+  description: 'Explore Vetical Builds projects, featuring premium residential and commercial developments in Bangalore and surrounding locations.',
+  alternates: { canonical: '/projects' },
+  openGraph: { title: 'Featured Projects | Vetical Builds', url: '/projects' },
 };
 
 import ProjectGrid from "@/components/ProjectGrid";

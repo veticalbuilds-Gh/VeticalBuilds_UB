@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ContactForm.module.css';
 import { FiMail, FiPhoneCall, FiMapPin, FiSend, FiBriefcase } from 'react-icons/fi';
 
-export default function ContactForm({ variant = "page" }) {
+export default function ContactForm({ variant = "page", headingLevel = 'h1' }) {
+  const Heading = headingLevel;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -43,7 +44,7 @@ Message: ${formData.message}`;
       <div className={styles.contactContainer}>
         <div className={styles.contactInfo}>
           <div className={styles.infoHeader}>
-            <h2 className={styles.infoTitle}>Get in Touch</h2>
+            <Heading className={styles.infoTitle}>Get in Touch</Heading>
             <p className={styles.infoSubtitle}>We would love to hear from you. Reach out to us for any inquiries, project details, or to book a site visit.</p>
           </div>
 
