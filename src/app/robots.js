@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://veticalbuilds.com/sitemap.xml',
+    sitemap: 'https://www.veticalbuilds.com/sitemap.xml',
   };
 }
