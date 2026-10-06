@@ -1,5 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
+
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'veticalbuilds.com' }],
+        destination: 'https://www.veticalbuilds.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     qualities: [25, 50, 75, 90, 100],
     remotePatterns: [
